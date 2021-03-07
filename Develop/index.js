@@ -1,104 +1,139 @@
-// TODO: Include packages needed for this application
-//we are making sure packages are locked an loaded before we code anything.
 const fs = require('fs');
 const inquirer = require('inquirer');
-
-// TODO: Create an array of questions for user input ACTIVITY 19 
-    //.catch will log errors for inquirer DO THIS TO SAVE YOURSELF!!!
-    //q1, What is your project title?
-    //q2, Add a description of your project?
-    //q3, Table of Contents 
-    //q4, Installation 
-    //q5, Usage
-    //q6, Credits
-    //q7, License
-    //q8, Badges
-    //q9, Features
-    //q10, Contributing 
-    //q11, Tests 
-const questions = [
-    inquirer
-    .prompt([{
-            type: 'input',
-            message: 'What is your project title?',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Add a description of your project',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Add your table of contents',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'How to Install',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Usage Details',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Credits',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'License',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Badges',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Future Contributing',
-            name: '',
-        },
-        {
-            type: 'input',
-            message: 'Tests',
-            name: '',
-        },
-    ])
-    // .then((response) =>
-    //     response.confirm === response.password ?
-    //     console.log('Success!') :
-    //     console.log('You forgot your password already?!')
-    // )
-
-];
-
-// TODO: Create a function to write README file USE TEMPLATE LITERAL for data var 
-//template literal here 
-
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) =>
-        // TODO: Describe how this ternary operator works
-        err ? console.error(err) : console.log('Commit logged!')
-    );
-
-
-
-
+// TODO: Create an array of questions for user input
+// const questions = [];
+function renderLicenseBadge(license) {
+    // 
+      switch(license) {
+      case "MIT":
+        return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+        break;
+      case "APACHE 2.0":
+        return `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+        break;
+      case "Boost":
+        return `[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`
+        break;
+      case "BSD 3":
+        return `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`
+        break;
+      default:
+        return "";
+    }
+    
+    }
+const questions = () =>
+inquirer
+  .prompt([
+      // title of my project 
+    
+    {
+        type: 'input',
+        message: 'What is the title of your project?',
+        name: 'projectTitle',
+    },
+    {
+        //Description
+        type: 'input',
+        message: 'What is your project about?',
+        name: 'description',
+    },
+    {
+         //license 
+        type: 'list',
+        name: 'license',
+        message: 'What kind of license should your project have?',
+        choices: [
+        "MIT", new inquirer.Separator(), 
+        "APACHE 2.0", new inquirer.Separator(), 
+        "Boost", new inquirer.Separator(), 
+        "BSD 3", new inquirer.Separator(), 
+        "None" 
+        ]
+    },
+    {
+    // Installation
+        type: 'input',
+        message: 'What command should be run to install dependencies?',
+        name: 'installation',
+    },
+    {
+       // Tests
+        type: 'input',
+        message: 'What command should be run to run tests?',
+        name: 'tests',
+    },
+    {
+        //Contributing
+        type: 'input',
+        name: 'contributing',
+        message: 'What does the user need to know about contributing to the repo?',
+    },
+    {
+        //usage
+        type: 'input',
+        message: 'What does the user need to know about the repo?',
+        name: 'usage',
+    },
+    {     // git hub
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'username',
+        
+    },
+    {
+        // email
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+        
+    }
+  ]);
+  
+// dont indent readme file
+const generateReadme = (answers) => {
+//const badge = renderLicenseBadge(answers.license)
+return `# ${answers.projectTitle} 
+## Description 
+${answers.description}
+## Table of Contents
+[Installation](#Installation)
+[Usage](#Usage)
+[License](#License)
+[Contributing](#Contributing)
+[Tests](#Tests)
+[Questions](#Questions)
+## Installation 
+to install necessary dependencies, run the following command:
+${answers.installation}
+## Usage 
+${answers.usage}
+## License 
+${renderLicenseBadge(answers.license)}
+## Contributing 
+${answers.contributing}
+## Tests 
+${answers.tests}
+## Questions
+If you have any questions, please contact me directly at ${answers.email} 
+Visit my Github [here](https://github.com/${answers.username})`;
 }
-
-// TODO: Create a function to initialize app this is where i run the prompt 
-function init() {
-    //ask questions
-    //get response 
-    //use response to pass to template literal
-    //once template is finished call write file function
-
+const init = () => {
+    questions().then((answers) => {
+        //Block of code to try
+        try {
+            const readMe = generateReadme(answers);
+            fs.writeFileSync('README.md', readMe);
+            console.log('Successfully wrote to README.md');
+        }
+        //Block of code to handle errors
+        catch (error) {
+            console.log(error);
+        }
+    });
+    // TODO: Create a function to initialize app
+    // function init() {}
+ 
+    // Function call to initialize app
 }
-
-// Function call to initialize app
 init();
