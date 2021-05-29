@@ -1,6 +1,6 @@
-# Mitch's Professional Read Me Generator 
+# Mitch Flood's Read Me Generator  
 ## Description 
-My project is designed to help coders write professional read me files with ease. 
+This project allows anyone to use node.js to generate a professional read me file for any project. All you need to do is run npm i to install the nescessary dependencies to run the application. Then you open the index.js file in node and run the command node index.js
 ## Table of Contents
 [Installation](#Installation)
 [Usage](#Usage)
@@ -10,15 +10,15 @@ My project is designed to help coders write professional read me files with ease
 [Questions](#Questions)
 ## Installation 
 to install necessary dependencies, run the following command:
-NPM I is crucial to install the appropriate node modules required to run the application. 
+npm i 
 ## Usage 
-Have fun saving time!
+Feel free to use for any project!
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Contributing 
-Submit all code changes to the paxton44 github for approval. 
+Anyone can contribute to the app, just submit changes on the paxton44 github account.
 ## Tests 
-N/A
+n/a
 ## Questions
 If you have any questions, please contact me directly at mitchflood1@gmail.com 
 Visit my Github [here](https://github.com/paxton44)

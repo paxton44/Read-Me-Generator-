@@ -1,7 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 // TODO: Create an array of questions for user input
-// const questions = [];
+const questionsArray = [];
 function renderLicenseBadge(license) {
     // 
       switch(license) {

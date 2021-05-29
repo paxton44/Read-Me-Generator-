@@ -1,7 +1,7 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "This application gives a user the opportunity to track their budget offline while traveling. It will save all user inputs whether it has an internet connection or not and then update the user budget any time there is an internet connection.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^6.5.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paxton44/Read-Me-Generator-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paxton44/Read-Me-Generator-/issues"
+  },
+  "homepage": "https://github.com/paxton44/Read-Me-Generator-#readme"
 }
