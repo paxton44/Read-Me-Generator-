@@ -22,5 +22,7 @@ n/a
 ## Questions
 If you have any questions, please contact me directly at mitchflood1@gmail.com 
 Visit my Github [here](https://github.com/paxton44)
-## Demo 
+## Demo Read Me 
+![](./assets/DemoReadMe.png)
+## Demo Video
 https://www.loom.com/share/780b7296075242309e50a81bda842ced
