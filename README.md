@@ -29,8 +29,5 @@ We welcome contributions from anyone interested in enhancing the application. Pl
 ## Questions
 If you have any questions, feel free to reach out to me directly at mitchflood1@gmail.com. You can also visit my GitHub profile [here](https://github.com/paxton44).
 
-## Demo Read Me
-![Demo Read Me](./assets/DemoReadMe.png)
-
 ## Demo Video
 Watch the demo video showcasing the usage of Mitch Flood's Read Me Generator [here](https://www.loom.com/share/780b7296075242309e50a81bda842ced).
